@@ -1,0 +1,31 @@
+import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
+void main() => runApp(const MyApp());
+List<Widget> images = [
+  SvgPicture.asset('assets/images/liftarn_Adele_Schopenhauer.svg'),
+  SvgPicture.asset('assets/images/liftarn_Black_horse.svg')
+];
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) => MaterialApp(
+      home: Scaffold(
+          appBar: AppBar(
+            title: const Text('Flutter Demo Home Page'),
+            centerTitle: true,
+          ),
+          body: Center(
+              child: CarouselSlider(
+                  items: images,
+                  options: CarouselOptions(
+                      height: 200,
+                      autoPlay: true,
+                      autoPlayCurve: Curves.bounceInOut,
+                      autoPlayAnimationDuration:
+                          const Duration(microseconds: 500),
+                      aspectRatio: 16 / 9)))));
+}
